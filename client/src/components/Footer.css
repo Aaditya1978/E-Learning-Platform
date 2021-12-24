@@ -1,0 +1,45 @@
+.footer{
+    padding-top: 10vh;
+    background-color: #2baf65;
+    padding-bottom: 10vh;
+}
+
+.footer .footer-text p{
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.footer .footer-text p a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer .footer-contact a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.footer .footer-contact .contact-icon{
+    color: #4139aa;
+}
+
+.footer .footer-contact p{
+    color: #fff;
+    font-size: 20px;
+}
+
+/* footer-icon on hover rotate animation */
+.footer .footer-text .footer-icon{
+    padding-right: 10px;
+    color:#4139aa;
+    transition: 0.4s;
+
+}
+
+.footer .footer-text .footer-icon:hover{
+    transform: rotate(360deg);
+
+}
