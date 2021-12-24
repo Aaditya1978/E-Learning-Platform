@@ -1,0 +1,19 @@
+.numbers{
+    padding-top: 10vh;
+    background-color: #d5f7d5;
+    padding-bottom: 10vh;
+    margin-bottom: 10vh;
+    text-align: center;
+}
+
+.numbers .number-icon{
+    height: 80px;
+    padding: 10px;
+    color: #4139aa;
+}
+
+.numbers .number-text{
+    font-size: 26px;
+    font-weight: 500;
+    color: #4139aa;
+}
