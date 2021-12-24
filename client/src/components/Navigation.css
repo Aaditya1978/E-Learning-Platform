@@ -1,0 +1,70 @@
+/* navbar fixed at top */
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 0;
+    box-shadow: 0 1px 0 rgba(0,0,0,.05);
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 0;
+}
+    
+.nav-logo{
+    width: 180px;
+    height: 80px;
+}
+
+.navbar-links{
+    display: inline-block;
+    justify-content: space-around;
+}
+
+.navbar-links span{
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.navbar-links span:hover{
+    cursor: pointer;
+    color: #13bd5d;
+}
+
+.navbar-links a:hover{
+    color: #178d4a;
+    text-decoration: none;
+}
+
+.navbar-links .active{
+    color: #178d4a;
+    text-decoration: none;
+}
+
+.buttons button{
+    color: #fff;
+    background-color: #13bd5d;
+    border: 2px solid #4139aa;
+    border-radius: 15px;
+    width: 120px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.05);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* hover scale animation */
+    transition: all .2s ease-in-out;
+}
+
+/* add hover scale animation */
+.buttons button:hover{
+    transform: scale(1.1);
+}
