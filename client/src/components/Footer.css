@@ -1,7 +1,11 @@
 .footer{
-    padding-top: 10vh;
+    padding-top: 5vh;
     background-color: #2baf65;
-    padding-bottom: 10vh;
+    padding-bottom: 4vh;
+    /* set footer to bottom */
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer .footer-text p{
@@ -15,6 +19,10 @@
     text-decoration: none;
 }
 
+.footer .footer-contact {
+    padding-left: 40px;
+}
+
 .footer .footer-contact a{
     text-decoration: none;
     color: #fff;
@@ -23,7 +31,7 @@
 }
 
 .footer .footer-contact .contact-icon{
-    color: #4139aa;
+    color: #000;
 }
 
 .footer .footer-contact p{
@@ -34,7 +42,7 @@
 /* footer-icon on hover rotate animation */
 .footer .footer-text .footer-icon{
     padding-right: 10px;
-    color:#4139aa;
+    color:#0d056c;
     transition: 0.4s;
 
 }

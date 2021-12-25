@@ -1,10 +1,19 @@
 import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { FaPython, FaJava, FaCuttlefish, FaReact } from "react-icons/fa";
 import { DiJavascript1, DiAndroid } from "react-icons/di";
 import "./Category.css";
 
 export default function Category() {
+
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    navigate("/register");
+  };
+
   return (
     <Container name="about" className="category">
       <h1 className="category-heading">Different Tracks Available</h1>
@@ -20,7 +29,7 @@ export default function Category() {
                 development, software development and much more.
               </Card.Text>
             </Card.Body>
-            <Button className="category-card-button">Explore</Button>
+            <Button className="category-card-button" onClick={handleClick}>Explore</Button>
           </Card>
         </Col>
         <Col>
@@ -35,7 +44,7 @@ export default function Category() {
                 It is a strict superset of C.
               </Card.Text>
             </Card.Body>
-            <Button className="category-card-button">Explore</Button>
+            <Button className="category-card-button" onClick={handleClick}>Explore</Button>
           </Card>
         </Col>
         <Col>
@@ -49,7 +58,7 @@ export default function Category() {
                 designed to have as few implementation dependencies as possible.
               </Card.Text>
             </Card.Body>
-            <Button className="category-card-button">Explore</Button>
+            <Button className="category-card-button" onClick={handleClick}>Explore</Button>
           </Card>
         </Col>
         <Col>
@@ -64,7 +73,7 @@ export default function Category() {
                 Internationalization API.
               </Card.Text>
             </Card.Body>
-            <Button className="category-card-button">Explore</Button>
+            <Button className="category-card-button" onClick={handleClick}>Explore</Button>
           </Card>
         </Col>
         <Col>
@@ -79,7 +88,7 @@ export default function Category() {
                 also used in the creation of React Native apps.
               </Card.Text>
             </Card.Body>
-            <Button className="category-card-button">Explore</Button>
+            <Button className="category-card-button" onClick={handleClick}>Explore</Button>
           </Card>
         </Col>
         <Col>
@@ -94,7 +103,7 @@ export default function Category() {
                 system.
               </Card.Text>
             </Card.Body>
-            <Button className="category-card-button">Explore</Button>
+            <Button className="category-card-button" onClick={handleClick}>Explore</Button>
           </Card>
         </Col>
       </Row>

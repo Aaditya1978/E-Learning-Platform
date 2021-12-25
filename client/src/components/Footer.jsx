@@ -17,7 +17,7 @@ export default function Footer() {
         <Row>
           <Col>
             <div className="footer-text">
-              <h2>Support</h2>
+              <h1>Support</h1>
               <p>
                 We are a team of students who are passionate about learning and
                 sharing knowledge. We are always open to new ideas and
@@ -28,7 +28,7 @@ export default function Footer() {
           </Col>
           <Col>
             <div className="footer-contact">
-              <h2>Contact Us</h2>
+              <h1>Contact Us</h1>
               <Row>
                 <a href="mailto:support@codeclub.com">
                   <MdEmail className="contact-icon" size={30} />{" "}
@@ -45,31 +45,31 @@ export default function Footer() {
           </Col>
           <Col>
             <div className="footer-text">
-              <h2>Follow Us</h2>
+              <h1>Follow Us</h1>
               <p>
                 <a
                   className="footer-icon"
                   href="https://www.facebook.com/codeclub.iitr"
                 >
-                  <FaFacebookSquare className="footer-icon" size={50} />
+                  <FaFacebookSquare className="footer-icon" size={40} />
                 </a>
                 <a
                   className="footer-icon"
                   href="https://www.instagram.com/codeclub.iitr/"
                 >
-                  <FaInstagram className="footer-icon" size={50} />
+                  <FaInstagram className="footer-icon" size={40} />
                 </a>
                 <a
                   className="footer-icon"
                   href="https://twitter.com/codeclub_iitr"
                 >
-                  <FaTwitterSquare className="footer-icon" size={50} />
+                  <FaTwitterSquare className="footer-icon" size={40} />
                 </a>
                 <a
                   className="footer-icon"
                   href="https://www.linkedin.com/company/codeclub-iitr/"
                 >
-                  <FaLinkedin className="footer-icon" size={50} />
+                  <FaLinkedin className="footer-icon" size={40} />
                 </a>
               </p>
             </div>

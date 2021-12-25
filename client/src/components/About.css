@@ -5,6 +5,10 @@
     margin-bottom: 10vh;
 }
 
+.about .about-text h1{
+    font-size: 50px;
+}
+
 .about .about-text p{
     font-size: 20px;
     font-weight: 400;

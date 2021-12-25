@@ -16,31 +16,39 @@
     padding: 20px 20px 20px 20px;
     transition: 0.3s;
     margin-bottom: 5vh;
+    background-color: #d5f7d5;
     /* height: 69vh; */
 }
 
 .category .category-card:hover{
     box-shadow: 0px 0px 10px #13bd5d;
-    transform: scale(1.05);
+    transform: scale(1.07);
 }
 
 .category .category-card .category-card-icon{
     color: #13bd5d;
+    width: 100%;
+    margin-left:auto;
+    margin-right: auto;
 }
 
 .category .category-card .card-title{
+    text-align: center;
     font-size: 30px;
     font-weight: 600;
     color: #178d4a;
 }
 
 .category .category-card .card-text{
+    text-align: center;
     font-size: 20px;
     font-weight: 400;
     color: #000;
 }
 
 .category .category-card-button{
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     width: 140px;
     background-color: #13bd5d;

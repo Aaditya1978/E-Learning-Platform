@@ -1,9 +1,23 @@
 import React from "react";
 import { Link } from "react-scroll";
-import logo from "../images/logos2.png";
+import { useNavigate  } from "react-router-dom";
+import logo from "../images/logo.png";
 import "./Navigation.css";
 
 export default function Navigation() {
+
+  const navigate = useNavigate();
+
+  const handleSignupClick = (e) => {
+    e.preventDefault();
+    navigate("/register");
+  };
+
+  const handleLoginClick = (e) => {
+    e.preventDefault();
+    navigate("/login");
+  };
+
   return (
     <div className="navbar">
       <div className="navbar-head">
@@ -17,8 +31,8 @@ export default function Navigation() {
         </div>
       </div>
       <div className="justify-content-left buttons">
-        <button>Login</button>
-        <button>Signup</button>
+        <button onClick={handleLoginClick}>Login</button>
+        <button onClick={handleSignupClick}>Signup</button>
       </div>
     </div>
   );
