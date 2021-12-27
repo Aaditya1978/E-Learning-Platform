@@ -1,11 +1,19 @@
 .footer{
     padding-top: 5vh;
-    background-color: #2baf65;
+    background-color: #23cf6e;
     padding-bottom: 4vh;
     /* set footer to bottom */
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+.footer .colum{
+    padding-left: 40px;
+}
+
+.footer .footer-logo img{
+    width:140px;
 }
 
 .footer .footer-text p{
@@ -15,12 +23,13 @@
 }
 
 .footer .footer-text p a{
-    color: #fff;
+    color: #000;
+    font-weight: 600;
     text-decoration: none;
 }
 
 .footer .footer-contact {
-    padding-left: 40px;
+    padding-left: 0px;
 }
 
 .footer .footer-contact a{
@@ -48,6 +57,6 @@
 }
 
 .footer .footer-text .footer-icon:hover{
-    transform: rotate(360deg);
+    transform: translateY(-6px);
 
 }

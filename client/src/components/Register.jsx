@@ -33,19 +33,52 @@ export default function Register() {
     navigate("/");
   };
 
-  const handleSubmit = (event) => {
+  const handleLoginClick = (e) => {
+    e.preventDefault();
+    navigate("/login");
+  };
+
+  const handleSubmit = async (event) => {
     const form = event.currentTarget;
+    event.preventDefault();
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
     } else if (password !== confirmPassword) {
-      event.preventDefault();
       event.stopPropagation();
       setError(true);
       setErrorMessage("Passwords do not match");
       setTimeout(() => {
         setError(false);
       }, 3000);
+    } else {
+      const response = await fetch('api/user/register', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+      if(response.status === 201) {
+        localStorage.setItem("token", data.token);
+        navigate("/home");
+      }
+      else{
+        setError(true);
+        setErrorMessage(data.error);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        setTimeout(() => {
+          setError(false);
+        }, 3000);
+      }
     }
 
     setValidated(true);
@@ -71,7 +104,7 @@ export default function Register() {
               </div>
             </div>
             <div className="justify-content-left buttons">
-              <button>Login</button>
+              <button onClick={handleLoginClick}>Login</button>
               <button>Signup</button>
             </div>
           </div>
@@ -85,7 +118,9 @@ export default function Register() {
                       <img src={icon} alt="icon" />
                     </div>
                     <Button className="register-button">SIGNUP</Button>
-                    <Button className="login-button">SIGNIN</Button>
+                    <Button className="login-button" onClick={handleLoginClick}>
+                      SIGNIN
+                    </Button>
                   </div>
                   <Card className="register-card" style={{ width: "30rem" }}>
                     <Card.Title>Create Your Account</Card.Title>

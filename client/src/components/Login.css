@@ -69,41 +69,29 @@
     transform: scale(1.1);
 }
 
-.register-container{
+.login-container{
     padding-top: 20vh;
     background-color:#d5f7d5;
     padding-bottom: 10vh;
 }
 
-.register-container .auth-image{
+.login-container .auth-image{
     /* aling image DIV to center */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 450px;
 }
 
-.register-container .left-logo{
+.login-container .left-logo{
     width: 550px;
 }
 
-.register-container .card-top{
+.login-container .card-top{
     position: relative;
 }
 
-.register-container .register-button{
-    border: none;
-    width: 15rem;
-    height: 5rem;
-    color: #13bd5d;
-    background-color: #fff;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 30px;
-}
-
-.register-container .login-button{
+.login-container .register-button{
     border: none;
     width: 15rem;
     height: 5rem;
@@ -115,23 +103,90 @@
     font-size: 30px;
 }
 
-.register-container .card-icon{
+.login-container .login-button{
+    border: none;
+    width: 15rem;
+    height: 5rem;
+    color: #13bd5d;
+    background-color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+
+.login-container .card-top .card-icon{
     position: absolute;
     top: 0;
     left: 38%;
 }
 
-.register-container .card-icon img{
+/* set .register-container .card-icon class responsive*/
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .login-container{
+        padding-top: 20vh;
+        background-color:#d5f7d5;
+        padding-bottom: 10vh;
+        margin-top: 10vh;
+    }
+    .login-container .card-top .card-icon{
+        left: 38%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .login-container{
+        padding-top: 20vh;
+        background-color:#d5f7d5;
+        padding-bottom: 10vh;
+        margin-top: 10vh;
+    }
+    .login-container .card-top .card-icon{
+        left: 38%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .login-container{
+        padding-top: 20vh;
+        background-color:#d5f7d5;
+        padding-bottom: 10vh;
+        margin-top: 10vh;
+    }
+    .login-container .card-top .card-icon{
+        left: 29%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .login-container .card-top .card-icon{
+        left: 22%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .login-container .card-top .card-icon{
+        left: 38%;
+    }
+}
+
+.login-container .card-top .card-icon img{
     width: 80px;
 }
 
-.register-container .register-card{
+.login-container .login-card{
     margin-top: -1px;
     border-top: none;
     border-top-left-radius: 0%;
 }
 
-.register-card .card-title{
+.login-card .card-title{
     font-size: 30px;
     font-weight: 600;
     text-align: center;
@@ -139,12 +194,12 @@
     padding-bottom: 20px;
 }
 
-.register-card .register-form{
+.login-container .login-card .login-form{
     padding-left: 20px;
     padding-right: 10px;
 }
 
-.register-card .register-form .submit-button{
+.login-container .login-card .login-form .submit-button{
     border: none;
     color: #fff;
     border-radius: 15px;
@@ -152,12 +207,12 @@
     text-align: center;
     text-decoration: none;
     font-weight: 600;
-    font-size: 20px;
-    padding: 10px;
-    width: 15rem;
+    font-size:18px;
+    padding: 6px;
+    width: 10rem;
 }
 
-.register-card .register-form .error-message{
+.login-card .login-form .error-message{
     color: #ff0000;
     font-size: 20px;
     font-weight: 600;

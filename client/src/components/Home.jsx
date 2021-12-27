@@ -22,6 +22,26 @@ export default function Home() {
   };
 
   useEffect(() => {
+    if(localStorage.getItem("token")){
+    const response = fetch('api/user/verifyToken', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token: localStorage.getItem("token")
+      })
+    }).then(response => response.json())
+    .then(data => {
+      if(data.user){
+        navigate("/home");
+      }
+      else{
+        localStorage.removeItem("token");
+      }
+    })
+  }
+
     setLoading(true);
     setTimeout(() => {
       setLoading(false);

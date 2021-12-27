@@ -115,13 +115,68 @@
     font-size: 30px;
 }
 
-.register-container .card-icon{
+
+.register-container .card-top .card-icon{
     position: absolute;
     top: 0;
     left: 38%;
 }
 
-.register-container .card-icon img{
+/* set .register-container .card-icon class responsive*/
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .register-container{
+        padding-top: 20vh;
+        background-color:#d5f7d5;
+        padding-bottom: 10vh;
+        margin-top: 10vh;
+    }
+    .register-container .card-top .card-icon{
+        left: 38%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .register-container{
+        padding-top: 20vh;
+        background-color:#d5f7d5;
+        padding-bottom: 10vh;
+        margin-top: 10vh;
+    }
+    .register-container .card-top .card-icon{
+        left: 38%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .register-container{
+        padding-top: 20vh;
+        background-color:#d5f7d5;
+        padding-bottom: 10vh;
+        margin-top: 10vh;
+    }
+    .register-container .card-top .card-icon{
+        left: 29%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .register-container .card-top .card-icon{
+        left: 22%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .register-container .card-top .card-icon{
+        left: 38%;
+    }
+}
+
+.register-container .card-top .card-icon img{
     width: 80px;
 }
 
