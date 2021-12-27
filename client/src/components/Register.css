@@ -119,7 +119,7 @@
 .register-container .card-top .card-icon{
     position: absolute;
     top: 0;
-    left: 38%;
+    left: 13rem;
 }
 
 /* set .register-container .card-icon class responsive*/
@@ -132,7 +132,7 @@
         margin-top: 10vh;
     }
     .register-container .card-top .card-icon{
-        left: 38%;
+        left: 12.5rem;
     }
 }
 
@@ -145,7 +145,7 @@
         margin-top: 10vh;
     }
     .register-container .card-top .card-icon{
-        left: 38%;
+        left: 13rem;
     }
 }
 
@@ -158,21 +158,21 @@
         margin-top: 10vh;
     }
     .register-container .card-top .card-icon{
-        left: 29%;
+        left: 12.4rem;
     }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .register-container .card-top .card-icon{
-        left: 22%;
+        left: 13rem;
     }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .register-container .card-top .card-icon{
-        left: 38%;
+        left: 13rem;
     }
 }
 
