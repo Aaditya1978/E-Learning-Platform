@@ -1,4 +1,22 @@
-.user-home{
-    text-align: center;
-    color: #000;
+.user-home .user-content{
+    display: flex;
+    justify-content: start;
+    
+}
+
+.user-home .user-content .sidebar{
+    width:100px;
+    height: 100vh;
+    border-right: 2px solid black;
+    background-color: burlywood;
+    position: fixed;
+    overflow: auto;
+}
+
+.user-home .user-content .maincontent{
+    /* background-color:aqua; */
+    position:absolute;
+    left:100px;
+    height: 100vh;
+ 
 }
