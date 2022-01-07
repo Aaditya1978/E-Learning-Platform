@@ -74,16 +74,23 @@ router.post("/login", async (req, res) => {
 
 router.post("/verifyToken",async (req, res) => {
     const { token } = req.body;
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(decoded.id);
-    if (user) {
-        return res.status(200).json({
-            user: user
-        });
+    try{
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const user = await User.findById(decoded.id);
+        if (user) {
+            return res.status(200).json({
+                user: user
+            });
+        }
+        else {
+            return res.status(401).json({
+                error: "User not found"
+            });
+        }
     }
-    else {
+    catch(err){
         return res.status(401).json({
-            error: "User not found"
+            error: "Invalid token"
         });
     }
 });
