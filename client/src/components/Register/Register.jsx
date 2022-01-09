@@ -2,20 +2,22 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
 import PageProgress from "react-page-progress";
-import PreLoader from "./PreLoader";
-import Footer from "./Footer";
-import logo from "../images/logo.png";
-import icon from "../images/icon.png";
-import authImage from "../images/auth-image.png";
-import "./Login.css";
+import PreLoader from "../PreLoader/PreLoader";
+import Footer from "../Footer/Footer";
+import logo from "../../images/logo.png";
+import icon from "../../images/icon.png";
+import authImage from "../../images/auth-image.png";
+import "./Register.css";
 
-export default function Login() {
+export default function Register() {
   const navigate = useNavigate();
 
   const [validated, setValidated] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -31,44 +33,54 @@ export default function Login() {
     navigate("/");
   };
 
-  const handleSignupClick = (e) => {
+  const handleLoginClick = (e) => {
     e.preventDefault();
-    navigate("/register");
-};
+    navigate("/login");
+  };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     const form = event.currentTarget;
     event.preventDefault();
     if (form.checkValidity() === false) {
       event.stopPropagation();
-    }
-    else{
-      const response = fetch('api/user/login', {
+    } else if (password !== confirmPassword) {
+      event.stopPropagation();
+      setError(true);
+      setErrorMessage("Passwords do not match");
+      setTimeout(() => {
+        setError(false);
+      }, 3000);
+    } else {
+      const response = await fetch('api/user/register', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          name,
           email,
           password,
         }),
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.error) {
-          setError(true);
-          setErrorMessage(data.error);
-          setEmail("");
-          setPassword("");
-          setTimeout(() => {
-            setError(false);
-          }, 3000);
-        } else {
-          localStorage.setItem("token", data.token);
-          navigate("/home");
-        }
       });
+
+      const data = await response.json();
+      if(response.status === 201) {
+        localStorage.setItem("token", data.token);
+        navigate("/home");
+      }
+      else{
+        setError(true);
+        setErrorMessage(data.error);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        setTimeout(() => {
+          setError(false);
+        }, 3000);
+      }
     }
+
     setValidated(true);
   };
 
@@ -92,12 +104,12 @@ export default function Login() {
               </div>
             </div>
             <div className="justify-content-left buttons">
-              <button>Login</button>
-              <button onClick={handleSignupClick}>Signup</button>
+              <button onClick={handleLoginClick}>Login</button>
+              <button>Signup</button>
             </div>
           </div>
 
-          <div className="login-container">
+          <div className="register-container">
             <Container>
               <Row>
                 <Col>
@@ -105,18 +117,33 @@ export default function Login() {
                     <div className="card-icon">
                       <img src={icon} alt="icon" />
                     </div>
-                    <Button className="register-button" onClick={handleSignupClick}>SIGNUP</Button>
-                    <Button className="login-button">SIGNIN</Button>
+                    <Button className="register-button">SIGNUP</Button>
+                    <Button className="login-button" onClick={handleLoginClick}>
+                      SIGNIN
+                    </Button>
                   </div>
-                  <Card className="login-card" style={{ width: "30rem" }}>
-                    <Card.Title>Sign in into Your Account</Card.Title>
+                  <Card className="register-card" style={{ width: "30rem" }}>
+                    <Card.Title>Create Your Account</Card.Title>
                     <Card.Body>
                       <Form
-                        className="login-form"
+                        className="register-form"
                         noValidate
                         validated={validated}
                         onSubmit={handleSubmit}
                       >
+                        <Form.Group className="mb-3" controlId="formName">
+                          <Form.Label>Name</Form.Label>
+                          <Form.Control
+                            type="text"
+                            placeholder="Enter Name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            Please Enter Name
+                          </Form.Control.Feedback>
+                        </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formEmail">
                           <Form.Label>Email address</Form.Label>
@@ -146,8 +173,35 @@ export default function Login() {
                           </Form.Control.Feedback>
                         </Form.Group>
 
+                        <Form.Group
+                          className="mb-3"
+                          controlId="formConformPassword"
+                        >
+                          <Form.Label>Confirm Password</Form.Label>
+                          <Form.Control
+                            required
+                            type="password"
+                            placeholder="Confirm Password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            Please enter Password.
+                          </Form.Control.Feedback>
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formCheckbox">
+                          <Form.Check
+                            required
+                            type="checkbox"
+                            label="I agree to Terms And Condition"
+                            feedback="You must agree before submitting."
+                            feedbackType="invalid"
+                          />
+                        </Form.Group>
+
                         <Button className="submit-button" type="submit">
-                          SIGN IN
+                          SIGN UP
                         </Button>
                         <div className="error-message">
                           {error ? errorMessage : ""}

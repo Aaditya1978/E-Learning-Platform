@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import PageProgress from "react-page-progress";
 import { useNavigate } from "react-router-dom";
-import PreLoader from "./PreLoader";
-import Navigation from "./Navigation";
-import Category from "./Category";
-import Number from "./Number";
-import About from "./About";
-import Footer from "./Footer";
-import banner from "../images/banner.png";
+import PreLoader from "../PreLoader/PreLoader";
+import Navigation from "./Navigation/Navigation";
+import Category from "./Category/Category";
+import Number from "./Number/Number";
+import About from "./About/About";
+import Footer from "../Footer/Footer";
+import banner from "../../images/banner.png";
 import "./Home.css";
 
 export default function Home() {

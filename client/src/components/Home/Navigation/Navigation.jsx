@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-scroll";
 import { useNavigate  } from "react-router-dom";
-import logo from "../images/logo.png";
+import logo from "../../../images/logo.png";
 import "./Navigation.css";
 
 export default function Navigation() {

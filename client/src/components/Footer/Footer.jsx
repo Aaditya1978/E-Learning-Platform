@@ -8,7 +8,7 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import icon from "../images/icon.png";
+import icon from "../../images/icon.png";
 import "./Footer.css";
 
 export default function Footer() {
