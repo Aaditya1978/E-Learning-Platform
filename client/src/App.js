@@ -11,10 +11,11 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          {/* <Route exact path="/" element={<Home />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/home" element={<UserHome />} />
+          <Route exact path="/home" element={<UserHome />} /> */}
+          <Route exact path="/" element={<UserHome/>}/>
         </Routes>
       </BrowserRouter>
     </div>
