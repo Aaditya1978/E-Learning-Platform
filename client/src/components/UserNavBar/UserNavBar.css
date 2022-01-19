@@ -1,0 +1,84 @@
+.usernav {
+  position: initial;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #d5f7d5;
+  box-shadow: 0px 6px 5px -6px rgba(0, 0, 0, 0.5);
+}
+.search-icon {
+  padding-top: 4px;
+  padding-left: 4px;
+  font-size: 2.2rem;
+}
+.search_bar {
+  width: 150px;
+  border-bottom: 1px solid black;
+  margin-right: 25px;
+}
+.search {
+  background: none;
+  border-radius: 0px;
+  border: none;
+}
+
+.search:focus {
+  box-shadow: none;
+  outline: none;
+  background: none;
+  border: none;
+}
+
+.userIcon {
+  width: 36px;
+  margin-right: 0.6rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.userp-text{
+  color: black;
+  font-weight: 500;
+}
+
+.userProfile:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+.navbar-light .navbar-nav .links {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+}
+.active {
+  border-bottom: 3px solid #13bd5d;
+}
+.msgIcon {
+  color: black;
+  font-size: 2.15rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.msgIcon:hover {
+  transform: scale(1.08);
+}
+.appIcon {
+  color: black;
+  font-size: 2.0rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.appIcon:hover {
+  transform: scale(1.08);
+}
+
+.drop-point{
+  background-color: #13bd5d;
+}
+.drop-point:hover{
+  background-color: #0f994b;
+}
