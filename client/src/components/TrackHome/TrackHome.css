@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+
+.main-track .main-heading h1{
+    font-size: 3rem;
+    font-family: 'Roboto Slab', serif;
+    color: #000;
+    text-align: center;
+    margin-top: 3rem;
+    text-decoration: underline;
+}
+
+.main-track .track-heading{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    color: #13c560;
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.5rem;
+}
+
+.main-track .card-course{
+    width: 27rem;
+    margin-bottom: 3rem;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.35);   
+    cursor: pointer;
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+
+.main-track .card-course:hover{
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.35);   
+    transform: translateY(-0.5rem);
+}
+
+.main-track .card-course .card-img{
+    width: 100%;
+    height: 15rem;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.main-track .card-course .card-title{
+    color: #13c560;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.8rem;
+}
+
+.main-track .card-course .card-text{
+    margin-top: 2.5vh;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1rem;
+}
+
+.main-track .card-course button{
+    margin-top: 2.5vh;
+    padding: 0.5rem 0.5rem;
+    background-color: #15aa55;
+    width: 9rem;
+}
