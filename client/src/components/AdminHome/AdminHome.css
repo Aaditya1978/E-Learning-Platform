@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+
+.admin-home .admin-home-heading{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.admin-home .admin-home-heading h1{
+    color: #000;
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.3rem;
+}
+
+.admin-home .admin-track .admin-track-heading h2{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    color: #13c560;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.5rem;
+}
+
+.admin-home .admin-track{
+    position: relative;
+}
+
+.admin-home .admin-track .add-track{
+    position: absolute;
+    top: 7vh;
+    right: 0;
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.admin-home .admin-track .add-track button{
+    background-color: #13c560;
+    color: #fff;
+    padding: 0.5rem 0.5rem;
+    border-radius: 8px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.2rem;
+    width: 10rem;
+}
+
+.admin-home .admin-track .add-track button:hover{
+    background-color: #15aa55;
+}
+
+.admin-home .admin-track .tracks{
+    margin-top: 12vh;
+    margin-bottom: 3vh;
+}
+
+.admin-home .admin-track .tracks thead{
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.admin-home .admin-track .tracks tbody td{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.admin-home .admin-track .tracks tbody tr:nth-child(odd){
+    background-color: #f5f2f2;
+    cursor: pointer;
+}
+
+.admin-home .admin-track .tracks tbody tr:nth-child(even){
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.admin-home .admin-track .tracks tbody tr:hover{
+    background-color: #b9e6cc;
+}
+
+.admin-home .admin-track .tracks tbody img{
+    height: 10rem;
+    width: 20rem;
+}
+
+.admin-home .admin-track .tracks tbody .title{
+    color: #000;
+    font-family: 'Roboto Slab', serif;
+    font-size: 2rem;
+}
+
+.admin-home .admin-track .tracks tbody .desc{
+    color: #000;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1rem;
+}
+
+.admin-home .admin-track .tracks tbody .act button{
+    margin-left: 2.2vh;
+    color: #fff;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    width: 6.3rem;
+}
+
+.admin-home .admin-logout{
+    position: absolute;
+    top: 7vh;
+    left: 0;
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-bottom: 6vh;
+}
+
+.admin-home .admin-logout button{
+    background-color: #13c560;
+    color: #fff;
+    padding: 0.5rem 0.5rem;
+    border-radius: 8px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.2rem;
+    width: 10rem;
+}
+
+.admin-home .admin-logout button:hover{
+    background-color: #15aa55;
+}
+
+.admin-home .no-tracks{
+    margin-top: 12vh;
+    margin-bottom: 3vh;
+    text-align: center;
+}

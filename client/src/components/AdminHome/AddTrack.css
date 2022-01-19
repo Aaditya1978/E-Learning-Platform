@@ -1,0 +1,69 @@
+body{
+    background-color: #c3ffdc;
+}
+
+.add-track-div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.add-track-div .card {
+  width: 40rem;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3vh;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.add-track-div .card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.35);
+  transform: translateY(-0.5rem);
+}
+
+.add-track-card .card-title {
+  color: #13c560;
+  font-family: "Roboto Slab", serif;
+  font-size: 2.7rem;
+  text-align: center;
+}
+
+.add-track-card .card-body {
+  margin-top: 2.5vh;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.2rem;
+}
+
+.add-track-card .card-body input {
+  width: 30vw;
+  height: 5vh;
+  border-radius: 0.5rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.2rem;
+}
+
+.add-track-card .card-body textarea {
+  width: 30vw;
+  height: 15vh;
+  border-radius: 0.5rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.2rem;
+}
+
+.add-track-card .card-body .add-track-btn {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.add-track-card .card-body button {
+  margin-top: 2.5vh;
+  padding: 0.5rem 0.5rem;
+  background-color: #15aa55;
+  width: 7rem;
+}
