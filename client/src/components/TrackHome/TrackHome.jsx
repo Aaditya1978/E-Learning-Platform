@@ -59,6 +59,7 @@ export default function TrackHome() {
     }, 1500);
   }, []);
 
+  
   return (
     <div>
       {loading ? (
@@ -78,7 +79,7 @@ export default function TrackHome() {
               <Row>
                 {courses.filter((course) => course.difficulty === "Beginner")
                   .length > 0 ? (
-                  <h2 className="track-heading">Beginner Level Courses</h2>
+                  <h2 className="track-heading">Beginner Level</h2>
                 ) : null}
                 {courses.map((course) =>
                   course.difficulty === "Beginner" ? (
@@ -92,7 +93,9 @@ export default function TrackHome() {
                         <Card.Body>
                           <Card.Title>{course.name}</Card.Title>
                           <Card.Text>{course.description}</Card.Text>
-                          <Button variant="primary">
+                          <Button variant="primary" onClick={()=>{
+                            navigate("/course/"+course._id);
+                          }}>
                             Start Course <FaArrowRight />
                           </Button>
                         </Card.Body>
@@ -121,7 +124,9 @@ export default function TrackHome() {
                         <Card.Body>
                           <Card.Title>{course.name}</Card.Title>
                           <Card.Text>{course.description}</Card.Text>
-                          <Button variant="primary">
+                          <Button variant="primary" onClick={()=>{
+                            navigate("/course/"+course._id);
+                          }}>
                             Start Course <FaArrowRight />
                           </Button>
                         </Card.Body>
@@ -149,7 +154,9 @@ export default function TrackHome() {
                         <Card.Body>
                           <Card.Title>{course.name}</Card.Title>
                           <Card.Text>{course.description}</Card.Text>
-                          <Button variant="primary">
+                          <Button variant="primary" onClick={()=>{
+                            navigate("/course/"+course._id);
+                          }}>
                             Start Course <FaArrowRight />
                           </Button>
                         </Card.Body>

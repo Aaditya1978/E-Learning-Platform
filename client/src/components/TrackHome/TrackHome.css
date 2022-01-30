@@ -2,23 +2,24 @@
 
 .main-track .main-heading h1{
     font-size: 3rem;
-    font-family: 'Roboto Slab', serif;
+    /* font-family: 'Roboto Slab', serif; */
     color: #000;
     text-align: center;
     margin-top: 3rem;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 .main-track .track-heading{
     margin-top: 3rem;
     margin-bottom: 3rem;
-    color: #13c560;
+    color: #178D4A;
     font-family: 'Roboto Slab', serif;
     font-size: 2.5rem;
+    text-align: center;
 }
 
 .main-track .card-course{
-    width: 27rem;
+    width: 26rem;
     margin-bottom: 3rem;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.35);   
     cursor: pointer;

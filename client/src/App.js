@@ -13,6 +13,7 @@ import EditTrack from "./components/AdminHome/EditTrack";
 import AdminTrack from "./components/AdminHome/AdminTrack"
 import AddCourse from "./components/AdminHome/AddCourse";
 import EditCourse from "./components/AdminHome/EditCourse";
+import CourseHome from "./components/CourseHome/CourseHome";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/home" element={<UserHome />} />
           <Route exact path="/tracks" element={<Tracks/>}/>
           <Route exact path="/track/:id" element={<TrackHome/>}/>
+          <Route exact path="/course/:id" element={<CourseHome/>}/>
 
           {/* Admin Routes */}
           <Route exact path="/admin_login" element={<Admin/>}/>

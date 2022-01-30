@@ -1,7 +1,6 @@
 .footer{
     padding-top: 5vh;
     background-color: #23cf6e;
-    padding-bottom: 4vh;
     /* set footer to bottom */
     position: relative;
     bottom: 0;
@@ -13,11 +12,13 @@
 }
 
 .footer .footer-logo img{
-    width:140px;
+    width:170px;
 }
-
+.footer .footer-text h2{
+    font-size: 1.8rem;
+}
 .footer .footer-text p{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
     color: #fff;
 }
@@ -25,7 +26,7 @@
 .footer .footer-text p a{
     color: #000;
     font-weight: 600;
-    text-decoration: none;
+    
 }
 
 .footer .footer-contact {
@@ -41,6 +42,7 @@
 
 .footer .footer-contact .contact-icon{
     color: #000;
+    font-size: 1.6rem;
 }
 
 .footer .footer-contact p{
@@ -51,7 +53,7 @@
 /* footer-icon on hover rotate animation */
 .footer .footer-text .footer-icon{
     padding-right: 10px;
-    color:#0d056c;
+    color:white;
     transition: 0.4s;
 
 }

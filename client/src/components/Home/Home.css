@@ -1,6 +1,7 @@
 .home-container{
     padding-top: 20vh;
-    background-color: #d5f7d5;
+    /* background-color: #d5f7d5; */
+    background-color: #ecfdec;
     padding-bottom: 10vh;
 }
 
@@ -8,6 +9,7 @@
 .header .heading{
     font-size: 50px;
     font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .header .sub-heading{
@@ -22,7 +24,7 @@
     height: 60px;
     background-color: #13bd5d;
     border: 0px solid #000;
-    border-radius: 12px;
+    border-radius: 10px;
     color: #fff;
     font-size: 24px;
     font-weight: 600;

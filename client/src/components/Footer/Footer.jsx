@@ -8,7 +8,9 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import icon from "../../images/icon.png";
+// import icon from "../../images/icon.png";
+import logo from "../../images/logo.png";
+
 import "./Footer.css";
 
 export default function Footer() {
@@ -18,12 +20,14 @@ export default function Footer() {
         <Row>
           <Col xs={2}>
             <div className="footer-logo">
-              <img src={icon} alt="logo" />
+              {/* <img src={icon} alt="logo" /> */}
+          <img className="nav-logo" src={logo} alt="logo" />
+      
             </div>
           </Col>
           <Col xs={6}>
             <div className="footer-text">
-              <h1>Support</h1>
+              <h2>Support</h2>
               <p>
                 We are a team of students who are passionate about learning and
                 sharing knowledge. We are always open to new ideas and
@@ -36,16 +40,16 @@ export default function Footer() {
           <Col className="colum">
             <Row>
               <div className="footer-contact">
-                <h1>Contact Us</h1>
+                <h2>Contact Us</h2>
                 <Row>
                   <a href="mailto:support@codeclub.com">
-                    <MdEmail className="contact-icon" size={30} />{" "}
+                    <MdEmail className="contact-icon"/>{" "}
                     support@codeclub.com
                   </a>
                 </Row>
                 <Row>
                   <p>
-                    <FaPhoneAlt className="contact-icon" size={30} />{" "}
+                    <FaPhoneAlt className="contact-icon"/>{" "}
                     +91-9888888888
                   </p>
                 </Row>
@@ -53,7 +57,7 @@ export default function Footer() {
             </Row>
             <Row>
               <div className="footer-text">
-                <h1>Follow Us</h1>
+                <h2>Follow Us</h2>
                 <p>
                   <a
                     className="footer-icon"

@@ -11,13 +11,12 @@
 }
 
 .category .category-card{
-    border-radius: 20px;
-    box-shadow: 0px 0px 2px #000;
+    box-shadow: 0px 0px 1px 2px #aee2c4;
     padding: 20px 20px 20px 20px;
     transition: 0.3s;
     margin-bottom: 5vh;
-    background-color: #d5f7d5;
-    /* height: 69vh; */
+    border:none;
+    background-color: #ecfdec;
 }
 
 .category .category-card:hover{

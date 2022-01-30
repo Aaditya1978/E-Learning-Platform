@@ -2,11 +2,12 @@
     padding-top: 10vh;
     background-color: #ffffff;
     padding-bottom: 10vh;
-    margin-bottom: 10vh;
+    /* margin-bottom: 10vh; */
 }
 
 .about .about-text h1{
-    font-size: 50px;
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
 .about .about-text p{

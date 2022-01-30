@@ -72,8 +72,8 @@ export default function UserHome() {
         label: "Tracks Done",
         data: [10, 12, 8, 11, 6, 19, 10, 9, 3, 5],
         fill: false,
-        backgroundColor: "#4ed487",
-        borderColor: "#4ed487",
+        backgroundColor: "#178D4A",
+        borderColor: "#178D4A",
       },
     ],
   };
@@ -134,7 +134,7 @@ export default function UserHome() {
                 <Card style={{ width: "27rem" }}>
                   <HiLightBulb className="card-icon" />
                   <Card.Body>
-                    <Card.Title>Lerning</Card.Title>
+                    <Card.Title>Learning</Card.Title>
                     <Card.Text>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Suspendisse varius enim in eros elementum tristique.
