@@ -128,4 +128,12 @@ router.post("/getTrackById", async (req, res) => {
   });
 });
 
+router.post("/getCourseById", async (req, res) => {
+  const { id } = req.body;
+  const course = await Course.findById(id);
+  return res.status(200).json({
+    course: course,
+  });
+});
+
 module.exports = router;
