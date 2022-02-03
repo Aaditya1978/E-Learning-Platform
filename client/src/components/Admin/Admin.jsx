@@ -14,7 +14,7 @@ export default function Admin() {
 
   useEffect(() => {
     if (localStorage.getItem("adminToken")) {
-      fetch("api/admin/verifyToken", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/verifyToken`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export default function Admin() {
           }
         });
     }
-  }, []);
+  }, [navigate]);
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -40,7 +40,7 @@ export default function Admin() {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     } else {
-      fetch("api/admin/login", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

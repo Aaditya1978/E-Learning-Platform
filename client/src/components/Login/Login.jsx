@@ -43,7 +43,7 @@ export default function Login() {
       event.stopPropagation();
     }
     else{
-      const response = fetch('api/user/login', {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

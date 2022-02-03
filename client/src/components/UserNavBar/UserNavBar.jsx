@@ -28,7 +28,7 @@ export default function UserNavBar() {
     if (!localStorage.getItem("token")) {
       navigate("/login");
     } else {
-      fetch("api/user/verifyToken", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/user/verifyToken`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +48,7 @@ export default function UserNavBar() {
           }
         });
     }
-  }, []);
+  }, [navigate]);
 
   const handleLogOut = (e) => {
     e.preventDefault();

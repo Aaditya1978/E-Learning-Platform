@@ -29,7 +29,7 @@ export default function EditCourse() {
     if (!localStorage.getItem("adminToken")) {
       navigate("/admin_login");
     } else {
-      fetch("http://localhost:5000/api/admin/verifyToken", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/verifyToken`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export default function EditCourse() {
         });
     }
     fetch(
-      "http://localhost:5000/api/admin/course/" + courseId,
+      `${process.env.REACT_APP_BASE_URL}/api/admin/course/${courseId}`,
       {
         method: "GET",
         headers: {
@@ -63,7 +63,7 @@ export default function EditCourse() {
         setUrls(cdata.course.videos);
         setImageData(cdata.course.image);
       });
-  }, []);
+  }, [courseId, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -74,7 +74,7 @@ export default function EditCourse() {
     formData.append("difficulty", level);
     formData.append("videos", JSON.stringify(urls));
     formData.append("courseId", courseId);
-    fetch("http://localhost:5000/api/admin/courseEdit", {
+    fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/courseEdit`, {
       method: "PUT",
       body: formData,
     })

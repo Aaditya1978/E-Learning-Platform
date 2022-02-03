@@ -1,95 +1,92 @@
-.main-course{
-   padding: 2rem 4rem;
+.main-course {
+  padding: 2rem 4rem;
 }
-.main-course .main-course-container{
+.main-course .main-course-container {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   height: 80vh;
+  margin-bottom: 10vh;
 }
-.main-course h2{
-   margin-bottom: 2rem;
-   font-size: 2.5rem;
-   /* text-align: center; */
+.main-course h2 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
 }
-.main-course-container .tut-vid .vid-player{
-   width:60rem ;
-   height: 70vh;
+.main-course-container .tut-vid .vid-player {
+  width: 50rem;
+  height: 70vh;
 }
-.main-course-container .tut-vid .description{
-   width: 60rem;
-   background-color: white;
-   padding: 2rem;
+.main-course-container .tut-vid .description {
+  width: 50rem;
+  background-color: white;
+  padding: 2rem;
 }
-.main-course-container .tut-vid .description h5{
-   color:#22382D;
+.main-course-container .tut-vid .description h5 {
+  color: #22382d;
 }
 
-.main-course-container .tut-vid{
-   width: 60rem;
-   height: 80vh;
-   overflow-y: scroll;
-   overflow-x: hidden;
+.main-course-container .tut-vid {
+  width: 50rem;
+  height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .main-course-container .tut-topics {
-   width: 25rem;
-   padding: 5px;
-   
-   background-color: #22382d;
+  width: 25rem;
+  padding: 5px;
 
-
+  background-color: #22382d;
 }
-.main-course-container .tut-topics .index{
-   overflow-y: scroll;
-   overflow-x: hidden;
-   height: 68vh;
+.main-course-container .tut-topics .index {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 68vh;
 }
-.main-course-container .tut-topics h3{
-   padding: 1rem;
-   /* color: #178D4A; */
-   color: white;
-   /* text-align: center; */
+.main-course-container .tut-topics h3 {
+  padding: 1rem;
+  /* color: #178D4A; */
+  color: white;
+  /* text-align: center; */
 }
-.course-completion{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+.course-completion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.course-completion h4{
-   color: #cad6cf;
+.course-completion h4 {
+  color: #cad6cf;
 }
-.lectures{
-   border:none;
-   border-bottom: 1px solid rgb(223, 230, 226);
-   border-radius: 0;
-   background-color: #C3FFDC;
+.lectures {
+  border: none;
+  border-bottom: 1px solid rgb(223, 230, 226);
+  border-radius: 0;
+  background-color: #c3ffdc;
 }
 
-.progress{
-   height: 0.3rem;
-   border-radius: 0;
+.progress {
+  height: 0.3rem;
+  border-radius: 0;
 }
-.progress-bar{
-   background-color:#178D4A   ;
+.progress-bar {
+  background-color: #178d4a;
 }
-input[type=checkbox]
-{
-   height: 22px;
-   width: 22px;
-   cursor: pointer;
-   background-color: #C3FFDC;
+input[type="checkbox"] {
+  height: 22px;
+  width: 22px;
+  cursor: pointer;
+  background-color: #c3ffdc;
 }
-.form-check-input[type=checkbox] {
-   border-radius: 2.25em;
+.form-check-input[type="checkbox"] {
+  border-radius: 2.25em;
 }
-input[type=checkbox]:focus{
-   outline: none;
-   box-shadow: none;
+input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: none;
 }
-.lectures label{
-   padding-left: 1rem;
+.lectures label {
+  padding-left: 1rem;
 }
-input[type=checkbox]:checked{
-   background-color: #178D4A;
-   outline: none;
+input[type="checkbox"]:checked {
+  background-color: #178d4a;
+  outline: none;
 }

@@ -21,7 +21,7 @@ export default function AdminTrack() {
     if (!localStorage.getItem("adminToken")) {
       navigate("/admin_login");
     } else {
-      fetch("http://localhost:5000/api/admin/verifyToken", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/verifyToken`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export default function AdminTrack() {
             localStorage.removeItem("adminToken");
             navigate("/admin_login");
           } else {
-            fetch("http://localhost:5000/api/admin/courses/" + id, {
+            fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/courses/${id}` , {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
@@ -50,10 +50,10 @@ export default function AdminTrack() {
           }
         });
     }
-  }, []);
+  }, [id, navigate]);
 
   const deleteCourse = (cid) => {
-    fetch("http://localhost:5000/api/admin/courseDelete", {
+    fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/courseDelete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

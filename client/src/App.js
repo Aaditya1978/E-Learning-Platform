@@ -10,7 +10,7 @@ import Admin from "./components/Admin/Admin";
 import AdminHome from "./components/AdminHome/AdminHome";
 import AddTrack from "./components/AdminHome/AddTrack";
 import EditTrack from "./components/AdminHome/EditTrack";
-import AdminTrack from "./components/AdminHome/AdminTrack"
+import AdminTrack from "./components/AdminHome/AdminTrack";
 import AddCourse from "./components/AdminHome/AddCourse";
 import EditCourse from "./components/AdminHome/EditCourse";
 import CourseHome from "./components/CourseHome/CourseHome";

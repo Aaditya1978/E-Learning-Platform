@@ -15,7 +15,7 @@ export default function AdminHome() {
     if (!localStorage.getItem("adminToken")) {
       navigate("/admin_login");
     } else {
-      fetch("api/admin/verifyToken", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/verifyToken`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export default function AdminHome() {
             localStorage.removeItem("adminToken");
             navigate("/admin_login");
           } else {
-            fetch("api/admin/tracks", {
+            fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/tracks`, {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
@@ -44,10 +44,10 @@ export default function AdminHome() {
           }
         });
     }
-  }, []);
+  }, [navigate]);
 
   const trackDelete = (id) => {
-    fetch("api/admin/trackDelete", {
+    fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/trackDelete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

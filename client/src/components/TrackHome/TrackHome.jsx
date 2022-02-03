@@ -20,7 +20,7 @@ export default function TrackHome() {
     if (!localStorage.getItem("token")) {
       navigate("/login");
     } else {
-      fetch("http://localhost:5000/api/user/verifyToken", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/user/verifyToken`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export default function TrackHome() {
         });
     }
 
-    fetch("http://localhost:5000/api/user/getTrackById", {
+    fetch(`${process.env.REACT_APP_BASE_URL}/api/user/getTrackById`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export default function TrackHome() {
     setTimeout(() => {
       setLoading(false);
     }, 1500);
-  }, []);
+  }, [id, navigate]);
 
   
   return (

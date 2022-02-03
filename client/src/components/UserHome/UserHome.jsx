@@ -23,7 +23,7 @@ export default function UserHome() {
     if (!localStorage.getItem("token")) {
       navigate("/login");
     } else {
-      fetch("api/user/verifyToken", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/user/verifyToken`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export default function UserHome() {
     setTimeout(() => {
       setLoading(false);
     }, 2500);
-  }, []);
+  }, [navigate]);
 
   const handleClick = (e) => {
     e.preventDefault();

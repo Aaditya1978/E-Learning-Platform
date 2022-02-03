@@ -17,7 +17,7 @@ export default function AddTrack() {
     if (!localStorage.getItem("adminToken")) {
       navigate("/admin_login");
     } else {
-      fetch("api/admin/verifyToken", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/verifyToken`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export default function AddTrack() {
           }
         });
     }
-  }, []);
+  }, [navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +46,7 @@ export default function AddTrack() {
       formData.append("image", imageData);
       formData.append("name", name);
       formData.append("description", description);
-      fetch("api/admin/addTrack", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/addTrack`, {
         method: "POST",
         body: formData,
       })

@@ -18,7 +18,7 @@ export default function EditTrack() {
     if (!localStorage.getItem("adminToken")) {
       navigate("/admin_login");
     } else {
-      fetch("http://localhost:5000/api/admin/track/" + id, {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/track/${id}` , {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export default function EditTrack() {
           setImageData(tdata.track.image);
         });
     }
-  }, []);
+  }, [id, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ export default function EditTrack() {
     formData.append("image", imageData);
     formData.append("name", name);
     formData.append("description", description);
-    fetch("http://localhost:5000/api/admin/track/" + id, {
+    fetch(`${process.env.REACT_APP_BASE_URL}/api/admin/track/${id}` , {
       method: "PUT",
       body: formData,
     })

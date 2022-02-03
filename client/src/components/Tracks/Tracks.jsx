@@ -16,7 +16,7 @@ export default function Tracks() {
     if (!localStorage.getItem("token")) {
       navigate("/login");
     } else {
-      fetch("api/user/verifyToken", {
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/user/verifyToken`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export default function Tracks() {
         });
     }
 
-    fetch("api/user/getAllTracks", {
+    fetch(`${process.env.REACT_APP_BASE_URL}/api/user/getAllTracks`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export default function Tracks() {
     setTimeout(() => {
       setLoading(false);
     }, 1500);
-  }, []);
+  }, [navigate]);
 
   return (
     <div>
