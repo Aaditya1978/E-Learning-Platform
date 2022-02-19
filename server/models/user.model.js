@@ -15,6 +15,12 @@ const User = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    courses: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "UserCourse",
+      },
+    ],
   },
   { collection: "user-data" }
 );
