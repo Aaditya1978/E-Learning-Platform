@@ -12,6 +12,13 @@ export default function CourseHome() {
   const { id } = useParams();
 
   const [loading, setLoading] = useState(false);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [videoUrl, setVideoUrl] = useState([""]);
+  const [videoTitle, setVideoTitle] = useState([""]);
+  const [currentVideo, setCurrentVideo] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [check, setCheck] = useState([false]);
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -35,11 +42,146 @@ export default function CourseHome() {
         });
     }
 
+    fetch(`${process.env.REACT_APP_BASE_URL}/api/user/getCourseById`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: id,
+        token: localStorage.getItem("token"),
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setTitle(data.course.name);
+        setDescription(data.course.description);
+        setVideoUrl(data.course.videos.map((video) => video.url));
+        setVideoTitle(data.course.videos.map((video) => video.title));
+        setCheck(data.userCourse.checked);
+        setProgress(data.userCourse.progress);
+      });
+
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 100);
-  }, [navigate]);
+    }, 1500);
+  }, [navigate, id]);
+
+  const handleVideoComplete = () => {
+    if (currentVideo < videoUrl.length - 1) {
+      if (!check[currentVideo]) {
+        fetch(
+          `${process.env.REACT_APP_BASE_URL}/api/user/handleCourseProgress`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              courseId: id,
+              token: localStorage.getItem("token"),
+              progress: progress + 1,
+              checked: check.map((item, index) =>
+                index === currentVideo ? true : item
+              ),
+            }),
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (!data.success) {
+              localStorage.removeItem("token");
+              navigate("/");
+            }
+            setProgress(data.userCourse.progress);
+            setCheck(data.userCourse.checked);
+            setCurrentVideo(currentVideo + 1);
+          });
+      } else {
+        setCurrentVideo(currentVideo + 1);
+      }
+    } else {
+      if (!check[currentVideo]) {
+        fetch(
+          `${process.env.REACT_APP_BASE_URL}/api/user/handleCourseProgress`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              courseId: id,
+              token: localStorage.getItem("token"),
+              progress: progress + 1,
+              checked: check.map((item, index) =>
+                index === currentVideo ? true : item
+              ),
+            }),
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (!data.success) {
+              localStorage.removeItem("token");
+              navigate("/");
+            }
+            setProgress(data.userCourse.progress);
+            setCheck(data.userCourse.checked);
+          });
+      }
+    }
+  };
+
+  const handleVideoCheck = (index) => {
+    if (check[index]) {
+      check[index] = false;
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/user/handleCourseProgress`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          courseId: id,
+          token: localStorage.getItem("token"),
+          progress: progress - 1,
+          checked: check,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (!data.success) {
+            localStorage.removeItem("token");
+            navigate("/");
+          }
+          setProgress(data.userCourse.progress);
+          setCheck(data.userCourse.checked);
+        });
+    } else {
+      check[index] = true;
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/user/handleCourseProgress`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          courseId: id,
+          token: localStorage.getItem("token"),
+          progress: progress + 1,
+          checked: check,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (!data.success) {
+            localStorage.removeItem("token");
+            navigate("/");
+          }
+          setProgress(data.userCourse.progress);
+          setCheck(data.userCourse.checked);
+        });
+    }
+  };
 
   return (
     <div>
@@ -52,7 +194,7 @@ export default function CourseHome() {
 
           <div className="main-course">
             {/* main heading */}
-            <h2>Python for Beginners</h2>
+            <h2>{title}</h2>
             <div className="main-course-container">
               <div className="tut-vid">
                 <div className="vid-player">
@@ -60,128 +202,39 @@ export default function CourseHome() {
                     width="100%"
                     height="100%"
                     controls
-                    url="https://www.youtube.com/watch?v=TCHSXAu5pls"
+                    url={videoUrl[currentVideo]}
+                    onEnded={handleVideoComplete}
                   />
                 </div>
 
                 <div className="description">
                   <h5>Description</h5>
                   <hr />
-                  <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Ullam voluptatum animi maiores quo voluptatem expedita
-                    nostrum esse nesciunt commodi, necessitatibus magni corporis
-                    sed tenetur explicabo modi corrupti deserunt facilis cumque
-                    aliquid repellat quis pariatur iusto vero. Dolore aliquid
-                    quam, odit possimus impedit illum magni est fuga totam
-                    necessitatibus eveniet ut!
-                  </p>
+                  <p>{description}</p>
                 </div>
               </div>
               <div className="tut-topics">
                 <div className="course-completion">
                   <h3>Course Progress</h3>
-                  <h4>7/20</h4>
+                  <h4>
+                    {progress}/{videoUrl.length}
+                  </h4>
                 </div>
-                <ProgressBar now={60} />
+                <ProgressBar now={(progress / videoUrl.length) * 100} />
                 <div className="index">
-                  <Card className="lectures">
-                    <Card.Body>
-                      <Form.Check
-                        class="checkbox-box"
-                        type="checkbox"
-                        label="This is some text within a card body"
-                      />
-                    </Card.Body>
-                  </Card>
-                  <Card className="lectures">
-                    <Card.Body>
-                      <Form.Check
-                        type="checkbox"
-                        label="This is some text within a card body."
-                      />
-                    </Card.Body>
-                  </Card>
-                  <Card className="lectures">
-                    <Card.Body>
-                      <Form.Check
-                        type="checkbox"
-                        label="This is some text within a card body."
-                      />
-                    </Card.Body>
-                  </Card>
-                  <Card className="lectures">
-                    <Card.Body>
-                      <Form.Check
-                        type="checkbox"
-                        label=" This is some text within a card body."
-                      />
-                    </Card.Body>
-                  </Card>
-                  <Card className="lectures">
-                    <Card.Body>
-                      <Form.Check
-                        type="checkbox"
-                        label=" This is some text within a card body."
-                      />
-                    </Card.Body>
-                  </Card>
-                  <Card className="lectures">
-                    <Card.Body>
-                      <Form.Check
-                        type="checkbox"
-                        label=" This is some text within a card body."
-                      />
-                    </Card.Body>
-                  </Card>
-                  <Card className="lectures">
-                    <Card.Body>
-                      <Form.Check
-                        type="checkbox"
-                        label=" This is some text within a card body."
-                      />
-                    </Card.Body>
-                  </Card>
-                  <Card className="lectures">
-                    <Card.Body>
-                      <Form.Check
-                        type="checkbox"
-                        label=" This is some text within a card body."
-                      />
-                    </Card.Body>
-                  </Card>
-                  <Card className="lectures">
-                    <Card.Body>
-                      <Form.Check
-                        type="checkbox"
-                        label=" This is some text within a card body."
-                      />
-                    </Card.Body>
-                  </Card>
-                  <Card className="lectures">
-                    <Card.Body>
-                      <Form.Check
-                        type="checkbox"
-                        label=" This is some text within a card body."
-                      />
-                    </Card.Body>
-                  </Card>
-                  <Card className="lectures">
-                    <Card.Body>
-                      <Form.Check
-                        type="checkbox"
-                        label=" This is some text within a card body."
-                      />
-                    </Card.Body>
-                  </Card>
-                  <Card className="lectures">
-                    <Card.Body>
-                      <Form.Check
-                        type="checkbox"
-                        label=" This is some text within a card body."
-                      />
-                    </Card.Body>
-                  </Card>
+                  {videoTitle.map((title, index) => (
+                    <Card className="lectures" key={index}>
+                      <Card.Body onClick={() => setCurrentVideo(index)}>
+                        <Form.Check
+                          class="checkbox-box"
+                          type="checkbox"
+                          label={title}
+                          checked={check[index]}
+                          onChange={handleVideoCheck.bind(this, index)}
+                        />
+                      </Card.Body>
+                    </Card>
+                  ))}
                 </div>
               </div>
             </div>

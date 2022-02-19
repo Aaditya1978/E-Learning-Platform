@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+.compete{
+    margin-top: 2vh;
+}
+
+.compete .sub-head{
+    color: #0f994b;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+}
+
+.compete .nav{
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    border-bottom-color: #0f994b;
+}
+
+.compete .nav .nav-item button{
+    color: #1f1f1f;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.compete .nav .nav-item button:hover{
+    border-bottom-color: #1ae792;
+}
+
+.compete .nav .nav-item .active{
+    background-color: #1ae792;
+    color: #000000;
+    border-bottom-color: #1ae792;
+}
+
+.compete .tab-content{
+    margin-bottom: 10vh;
+}

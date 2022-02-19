@@ -14,7 +14,9 @@ import AdminTrack from "./components/AdminHome/AdminTrack";
 import AddCourse from "./components/AdminHome/AddCourse";
 import EditCourse from "./components/AdminHome/EditCourse";
 import CourseHome from "./components/CourseHome/CourseHome";
-
+import Analytics from "./components/Analytics/Analytics";
+import Compete from "./components/Compete/Compete";
+import Practice from "./components/Practice/Practice";
 
 function App() {
   return (
@@ -30,6 +32,9 @@ function App() {
           <Route exact path="/tracks" element={<Tracks/>}/>
           <Route exact path="/track/:id" element={<TrackHome/>}/>
           <Route exact path="/course/:id" element={<CourseHome/>}/>
+          <Route exact path="/analytics" element={<Analytics/>}/>
+          <Route exact path="/compete" element={<Compete/>}/>
+          <Route exact path="/practice" element={<Practice/>}/>
 
           {/* Admin Routes */}
           <Route exact path="/admin_login" element={<Admin/>}/>

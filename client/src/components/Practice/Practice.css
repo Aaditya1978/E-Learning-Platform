@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+.practice{
+    margin-top: 2vh;
+}
+
+.practice .editor{
+    margin-top: 4vh;
+    margin-bottom: 8vh;
+}
+
+.practice .editor h3{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.6rem;
+}
+
+.practice .editor .form-label{
+    margin-top: 3vh;
+    color: #0f994b;
+    font-weight: 700;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.practice .editor .row{
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+}
+
+.practice .editor .form-select{
+    width: 10rem;
+}
+
+.practice .editor .run-button{
+    background-color: #0f994b;
+    width: 10rem;
+    padding: 0.5rem 1.2rem;
+    margin-top: 6vh;
+    margin-bottom: 5vh;
+    border-radius: 8px;
+}
+
+.practice .editor .run-button:hover{
+    background-color: #13c560;
+}
+
+.practice .editor .input{
+    width: 20rem;
+}
+
+.practice .editor .output-window{
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+    background-color: #ffffff;
+    border-radius: 8px;
+    width: 25rem;
+    min-height: 20vh;
+}

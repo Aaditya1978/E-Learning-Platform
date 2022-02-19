@@ -18,6 +18,10 @@ export default function UserHome() {
   const [loading, setLoading] = useState(false);
 
   const [name, setName] = useState("");
+  const [lineData, setLineData] = useState([
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  ]);
+  const [pieData, setPieData] = useState([0, 0, 0]);
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -37,12 +41,42 @@ export default function UserHome() {
           if (!data.user) {
             localStorage.removeItem("token");
             navigate("/");
-          }
-          else{
+          } else {
             setName(data.user.name);
           }
         });
     }
+    fetch(`${process.env.REACT_APP_BASE_URL}/api/user/getUserData`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token: localStorage.getItem("token"),
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        let completed = 0;
+        let total = 0;
+        let left = 0;
+        data.courses.forEach((course) => {
+          total += course.videos.length;
+        });
+        data.userCourses.map((course) => {
+          completed += course.progress;
+          if (course.completed === true) {
+            const month = new Date(course.date_completed).getMonth();
+            setLineData((prevState) => {
+              const newArray = [...prevState];
+              newArray[month] += 1;
+              return newArray;
+            });
+          }
+        });
+        left = total - completed;
+        setPieData([completed, total, left]);
+      });
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -52,6 +86,21 @@ export default function UserHome() {
   const handleClick = (e) => {
     e.preventDefault();
     navigate("/tracks");
+  };
+
+  const handleClick2 = (e) => {
+    e.preventDefault();
+    navigate("/analytics");
+  };
+
+  const handleClick3 = (e) => {
+    e.preventDefault();
+    navigate("/practice");
+  };
+
+  const handleClick4 = (e) => {
+    e.preventDefault();
+    navigate("/compete");
   };
 
   const data = {
@@ -66,11 +115,13 @@ export default function UserHome() {
       "Aug",
       "Sep",
       "Oct",
+      "Nov",
+      "Dec",
     ],
     datasets: [
       {
-        label: "Tracks Done",
-        data: [10, 12, 8, 11, 6, 19, 10, 9, 3, 5],
+        label: "Courses Done",
+        data: lineData,
         fill: false,
         backgroundColor: "#178D4A",
         borderColor: "#178D4A",
@@ -79,11 +130,11 @@ export default function UserHome() {
   };
 
   const data2 = {
-    labels: ["Tasks Done", "Total Tasks", "Pending Tasks"],
+    labels: ["Videos Done", "Total Videos", "Pending Videos"],
     datasets: [
       {
-        label: "Tasks",
-        data: [10, 18, 8],
+        label: "Videos",
+        data: pieData,
         backgroundColor: [
           "rgb(255, 99, 132)",
           "rgb(54, 162, 235)",
@@ -112,7 +163,16 @@ export default function UserHome() {
               <h2 className="heading">Your current stats</h2>
               <Row>
                 <Col xs={6} md={6}>
-                  <Line data={data} />
+                  <Line
+                    data={data}
+                    options={{
+                      scales: {
+                        y: {
+                          beginAtZero: true,
+                        },
+                      },
+                    }}
+                  />
                 </Col>
                 <Col xs={6} md={6}>
                   <Doughnut
@@ -136,8 +196,10 @@ export default function UserHome() {
                   <Card.Body>
                     <Card.Title>Learning</Card.Title>
                     <Card.Text>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse varius enim in eros elementum tristique.
+                      Explore our learning platform and learn from the best
+                      content. Here you can find the best videos available. 
+                      All you need is to just click on the course and start 
+                      learning.
                     </Card.Text>
                     <Button variant="success" onClick={handleClick}>
                       Explore
@@ -151,10 +213,11 @@ export default function UserHome() {
                   <Card.Body>
                     <Card.Title>Discover</Card.Title>
                     <Card.Text>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse varius enim in eros elementum tristique.
+                      Here you will get know about different analytics and
+                      statistics. You can see the progress of your courses 
+                      and also see the analytics of programming languages.
                     </Card.Text>
-                    <Button variant="success">Explore</Button>
+                    <Button variant="success" onClick={handleClick2}>Explore</Button>
                   </Card.Body>
                 </Card>
               </Col>
@@ -164,10 +227,11 @@ export default function UserHome() {
                   <Card.Body>
                     <Card.Title>Practice</Card.Title>
                     <Card.Text>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse varius enim in eros elementum tristique.
+                      Here you can practice your programming skills and also
+                      get know about the best practices. Here you will find 
+                      best coding questions and also the solutions.
                     </Card.Text>
-                    <Button variant="success">Explore</Button>
+                    <Button variant="success" onClick={handleClick3}>Explore</Button>
                   </Card.Body>
                 </Card>
               </Col>
@@ -177,10 +241,11 @@ export default function UserHome() {
                   <Card.Body>
                     <Card.Title>Compete</Card.Title>
                     <Card.Text>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse varius enim in eros elementum tristique.
+                      Here you can compete with other users and get know about
+                      the best your strengths and weaknesses. You can also
+                      compete with other programming languages.
                     </Card.Text>
-                    <Button variant="success">Explore</Button>
+                    <Button variant="success" onClick={handleClick4}>Explore</Button>
                   </Card.Body>
                 </Card>
               </Col>
@@ -190,8 +255,9 @@ export default function UserHome() {
                   <Card.Body>
                     <Card.Title>Community</Card.Title>
                     <Card.Text>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse varius enim in eros elementum tristique.
+                      Here you can get know about the best codiing
+                      community. You can enrich your knowledge by joining 
+                      and get know about some of the best resources.
                     </Card.Text>
                     <Button variant="success">Explore</Button>
                   </Card.Body>

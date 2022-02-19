@@ -53,9 +53,14 @@ body {
   font-size: 1.2rem;
 }
 
-.add-track-card .card-body .video-url {
+.add-track-card .card-body .video-url{
   margin-top: 2.5vh;
-  width: 15rem;
+  width: 12rem;
+}
+
+.add-track-card .card-body .video-title{
+margin-top: 2.5vh;
+width: 12rem;
 }
 
 .add-track-card .card-body .videos {

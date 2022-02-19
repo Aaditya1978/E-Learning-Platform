@@ -11,7 +11,7 @@ export default function EditCourse() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [level, setLevel] = useState("Beginner");
-  const [urls, setUrls] = useState([""]);
+  const [urls, setUrls] = useState([{ url: "", title: "" }]);
   const [image, setImage] = useState("");
   const [imageData, setImageData] = useState();
   const [error, setError] = useState(false);
@@ -21,7 +21,7 @@ export default function EditCourse() {
     setName("");
     setDescription("");
     setLevel("Beginner");
-    setUrls([""]);
+    setUrls([{ url: "", title: "" }]);
     setImage("");
     setImageData();
     setError(false);
@@ -136,13 +136,26 @@ export default function EditCourse() {
                       type="text"
                       name="video"
                       className="video-url"
-                      value={ele}
+                      value={ele.url}
                       onChange={(e) => {
                         const newUrls = [...urls];
-                        newUrls[ind] = e.target.value;
+                        newUrls[ind].url = e.target.value;
                         setUrls(newUrls);
                       }}
                       placeholder="Enter Video URL"
+                    />
+                    <Form.Control
+                      key={ind}
+                      type="text"
+                      name="title"
+                      className="video-title"
+                      value={ele.title}
+                      onChange={(e) => {
+                        const newUrls = [...urls];
+                        newUrls[ind].title = e.target.value;
+                        setUrls(newUrls);
+                      }}
+                      placeholder="Enter Video Title"
                     />
                     {ind ? (
                       <Button
@@ -162,7 +175,7 @@ export default function EditCourse() {
                   variant="primary"
                   onClick={() => {
                     const newUrls = [...urls];
-                    newUrls.push("");
+                    newUrls.push({ url: "", title: "" });
                     setUrls(newUrls);
                   }}
                 >

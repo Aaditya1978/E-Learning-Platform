@@ -34,13 +34,13 @@
 .main-course-container .tut-topics {
   width: 25rem;
   padding: 5px;
-
   background-color: #22382d;
 }
 .main-course-container .tut-topics .index {
   overflow-y: scroll;
   overflow-x: hidden;
   height: 68vh;
+  background-color: #c3ffdc;
 }
 .main-course-container .tut-topics h3 {
   padding: 1rem;
@@ -61,6 +61,7 @@
   border-bottom: 1px solid rgb(223, 230, 226);
   border-radius: 0;
   background-color: #c3ffdc;
+  cursor: pointer;
 }
 
 .progress {
