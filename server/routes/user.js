@@ -298,7 +298,7 @@ router.post("/compile", async (req, res) => {
     .request({
       method: "POST",
       url: compileUrl,
-      params: { base64_encoded: "true", fields: "*" },
+      params: { base64_encoded: "false", fields: "*" },
       headers: {
         "Content-Type": "application/json",
         "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
@@ -315,16 +315,15 @@ router.post("/compile", async (req, res) => {
       axios
         .request({
           method: "GET",
-          url: `compileUrl/${response.data.token}`,
-          params: { base64_encoded: "true", fields: "*" },
+          url: `${compileUrl}/${response.data.token}`,
+          params: { base64_encoded: "false", fields: "*" },
           headers: {
-            "Content-Type": "application/json",
             "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
-            "x-rapidapi-key":
-              "a2c6754f15msh7fbc3a77f87af08p135901jsn8c82bc01a4a0",
+            "x-rapidapi-key": "a2c6754f15msh7fbc3a77f87af08p135901jsn8c82bc01a4a0",
           },
         })
         .then((response) => {
+          console.log(response.data);
           return res.status(200).json({
             output: response.data,
           });

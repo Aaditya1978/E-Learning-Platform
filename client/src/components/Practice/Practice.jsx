@@ -20,6 +20,8 @@ import "ace-builds/src-noconflict/theme-xcode";
 import "ace-builds/src-noconflict/theme-terminal";
 import "ace-builds/src-noconflict/theme-textmate";
 import "ace-builds/src-noconflict/ext-language_tools";
+import { MdMemory } from "react-icons/md";
+import { FaClock } from "react-icons/fa";
 import PreLoader from "../PreLoader/PreLoader";
 import UserNavBar from "../UserNavBar/UserNavBar";
 import Footer from "../Footer/Footer";
@@ -37,6 +39,10 @@ export default function Practice() {
   const [compiling, setCompiling] = useState(false);
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [time, setTime] = useState("");
+  const [memory, setMemory] = useState("");
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -71,36 +77,30 @@ export default function Practice() {
   const handleCodeCompile = () => {
     setCompiling(true);
     let newInput;
-    if(input === ""){
-        newInput = null;
-    }
-    else{
-        newInput = input;
+    if (input === "") {
+      newInput = null;
+    } else {
+      newInput = input;
     }
     let languageCode;
-    if(language === "c_cpp"){
-        languageCode = 76;
-    }
-    else if(language === "python"){
-        languageCode = 71;
-    }
-    else if(language === "javascript"){
-        languageCode = 63;
-    }
-    else if(language === "golang"){
-        languageCode = 60;
-    }
-    else if(language === "ruby"){
-        languageCode = 72;
-    }
-    else if(language === "php"){
-        languageCode = 68;
-    }
-    else if(language === "csharp"){
-        languageCode = 51;
-    }
-    else if(language === "typescript"){
-        languageCode = 74;
+    if (language === "c_cpp") {
+      languageCode = 76;
+    } else if (language === "python") {
+      languageCode = 71;
+    } else if (language === "javascript") {
+      languageCode = 63;
+    } else if (language === "golang") {
+      languageCode = 60;
+    } else if (language === "java") {
+      languageCode = 62;
+    } else if (language === "ruby") {
+      languageCode = 72;
+    } else if (language === "php") {
+      languageCode = 68;
+    } else if (language === "csharp") {
+      languageCode = 51;
+    } else if (language === "typescript") {
+      languageCode = 74;
     }
     fetch(`${process.env.REACT_APP_BASE_URL}/api/user/compile`, {
       method: "POST",
@@ -116,8 +116,16 @@ export default function Practice() {
       .then((response) => response.json())
       .then((data) => {
         setCompiling(false);
-        console.log(data.error);
-        setOutput(data.output);
+        if (data.output.stderr) {
+          setError(true);
+          setErrorMessage(data.output.stderr);
+        }else{
+          setError(false);
+          setErrorMessage("");
+          setOutput(data.output.stdout);
+          setTime(data.output.time);
+          setMemory(data.output.memory);
+        }
       });
   };
 
@@ -144,6 +152,7 @@ export default function Practice() {
                   >
                     <option value="c_cpp">C/C++</option>
                     <option value="golang">Go</option>
+                    <option value="java">Java</option>
                     <option value="javascript">JavaScript</option>
                     <option value="python">Python</option>
                     <option value="ruby">Ruby</option>
@@ -209,10 +218,24 @@ export default function Practice() {
                 {compiling ? (
                   <Spinner animation="border" variant="primary" />
                 ) : null}
-                {output !== "" ? (
+                {output !== "" && !error ? (
                   <div className="output-window">
                     <h3>Output</h3>
                     <div className="output">{output}</div>
+                    <div className="time-memory">
+                      <div className="time">
+                        <FaClock /> Time: {time} seconds
+                      </div>
+                      <div className="memory">
+                        <MdMemory /> Memory: {memory} KB
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
+                {error ? (
+                  <div className="error-window">
+                    <h3>Error</h3>
+                    <div className="error">{errorMessage}</div>
                   </div>
                 ) : null}
               </div>

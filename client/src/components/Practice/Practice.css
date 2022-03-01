@@ -50,11 +50,53 @@
     width: 20rem;
 }
 
-.practice .editor .output-window{
+.practice .editor .output-window h3{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.6rem;
+}
+
+.practice .editor .output-window .output{
+    margin-top: 6vh;
+    margin-bottom: 2vh;
+    background-color: #ffffff;
+    border-radius: 8px;
+    width: 25rem;
+    min-height: 20vh;
+    padding: 1vh 1.5rem;
+    white-space: pre-line;
+}
+
+.practice .editor .output-window .time-memory .time{
+    color: #000;
+    padding-bottom: 1rem;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.1rem;
+}
+
+.practice .editor .output-window .time-memory .memory{
+    color: #000;
+    padding-bottom: 1rem;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.1rem;
+}
+
+.practice .editor .error-window h3{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.6rem;
+    color: #ff0000;
+}
+
+.practice .editor .error-window .error{
     margin-top: 6vh;
     margin-bottom: 6vh;
     background-color: #ffffff;
     border-radius: 8px;
     width: 25rem;
     min-height: 20vh;
+    padding: 1vh 1.5rem;
+    color: #e74a4a;
 }
