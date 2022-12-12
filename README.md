@@ -41,7 +41,7 @@ https://code-clubs.netlify.app
 
 Client - Netlify
 
-Server - Heroku
+Server - Render
 
 
 ## Tech Stack
